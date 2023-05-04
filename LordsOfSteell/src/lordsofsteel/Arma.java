@@ -6,14 +6,25 @@ import java.util.Scanner;
 
 public class Arma {
     protected String tipus;
-    protected int WPOW;
-    protected int WVEl;
-    
-    public Arma (String tipus, int WPOW, int WVEL){
+    protected int wpow;
+    protected int wvel;
+        
+    public Arma(String tipus) {
         this.tipus = tipus;
-        this.WPOW = WPOW;
-        this.WVEl = WVEL;
-    
+        switch (tipus) {
+            case "Daga":
+                this.wpow  = 5;
+                this.wvel  = 15;
+                break;
+            case "Espasa":
+                this.wpow  = 10;
+                this.wvel  = 10;
+                break;
+            case "Martell":
+                this.wpow  = 15;
+                this.wvel  = 5;
+                break;                                
+        }
     }
 
     public String getTipus() {
@@ -24,19 +35,21 @@ public class Arma {
         this.tipus = tipus;
     }
 
-    public int getWPOW() {
-        return WPOW;
+    public int getWpow() {
+        return wpow;
     }
 
-    public void setWPOW(int WPOW) {
-        this.WPOW = WPOW;
+    public void setWpow(int wpow) {
+        this.wpow = wpow;
     }
 
-    public int getWVEl() {
-        return WVEl;
+    public int getWvel() {
+        return wvel;
     }
 
-    public void setWVEl(int WVEl) {
-        this.WVEl = WVEl;
+    public void setWvel(int wvel) {
+        this.wvel = wvel;
     }
+    
+    
 }
