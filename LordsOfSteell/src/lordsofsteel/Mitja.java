@@ -5,10 +5,10 @@ package lordsofsteel;
 
 public class Mitja extends Personatge {
     
-    public Mitja(int forca, int constitucio, int velocitat,
+    public Mitja(String nom,int forca, int constitucio, int velocitat,
                  int intelligencia, int sort, Arma arma) {
 
-        super(forca,constitucio,velocitat,intelligencia,sort,arma);
+        super(nom,forca,constitucio,velocitat,intelligencia,sort,arma);
     }
     
 
@@ -19,4 +19,5 @@ public class Mitja extends Personatge {
     }
 
 }
+
 

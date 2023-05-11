@@ -3,9 +3,8 @@ package lordsofsteel;
 import java.util.Scanner;
 
  //  @author Ricard
-
 public class Personatge {
-   
+
     // Atributs principals
     protected int forca;
     protected int constitucio;
@@ -23,8 +22,12 @@ public class Personatge {
     // Arma
     protected Arma arma;
 
-    public Personatge(int forca, int constitucio, int velocitat,
+    // Nom
+    protected String nom;
+    
+    public Personatge(String nom, int forca, int constitucio, int velocitat,
                       int intelligencia, int sort, Arma arma) {
+        this.nom           = nom;
         this.forca         = forca;
         this.constitucio   = constitucio;
         this.velocitat     = velocitat;
@@ -121,6 +124,14 @@ public class Personatge {
 
     public void setArma(Arma arma) {
         this.arma = arma;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
     

@@ -5,10 +5,10 @@ package lordsofsteel;
 
 public class Maia extends Personatge {
 
-    public Maia(int forca, int constitucio, int velocitat,
+    public Maia(String nom,int forca, int constitucio, int velocitat,
                 int intelligencia, int sort, Arma arma) {
 
-        super(forca,constitucio,velocitat,intelligencia,sort,arma);
+        super(nom,forca,constitucio,velocitat,intelligencia,sort,arma);
     }
 
     @Override
