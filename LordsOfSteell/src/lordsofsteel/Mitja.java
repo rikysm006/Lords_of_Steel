@@ -17,7 +17,10 @@ public class Mitja extends Personatge {
         super.calculaEstadistiquesSecundaries();
         pe = velocitat+ sort + intelligencia + forca;
     }
-
+    
+    @Override
+    public void mostraNomTipus(){System.out.println("Mitja");
+    } 
 }
 
 

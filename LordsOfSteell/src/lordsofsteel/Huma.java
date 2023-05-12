@@ -13,10 +13,14 @@ public class Huma extends Personatge {
         
     }
 
-    @Override
+    
     protected void calculaEstadistiquesSecundaries() {
         super.calculaEstadistiquesSecundaries();
         ps = constitucio + forca + intelligencia;
     }
-  
+    
+    @Override
+    public void mostraNomTipus(){
+        System.out.println("Huma");
+    }
 }

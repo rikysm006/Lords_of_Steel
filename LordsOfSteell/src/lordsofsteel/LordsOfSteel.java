@@ -54,8 +54,7 @@ public class LordsOfSteel {
         
         String entrada = sc.nextLine();
         
-        // Només hem d'arribar aquí si estem segurs
-        // que l'opció triada és un enter entre 1-5
+        
         int opcio = Integer.parseInt(entrada);
         
         switch (opcio) {
@@ -80,7 +79,6 @@ public class LordsOfSteel {
         
         boolean[] seleccionats = new boolean[personatges.size()];
         Personatge[] lluitadors = new Personatge[2];
-        //for (Personatge p : personatges)
         for (int selec = 1; selec <= 2; selec++) {
             for (int i = 0; i < personatges.size(); ++i) {
                 if (!seleccionats[i]) {

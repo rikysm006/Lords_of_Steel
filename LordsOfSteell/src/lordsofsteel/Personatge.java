@@ -1,29 +1,26 @@
 
 package lordsofsteel;
-import java.util.Scanner;
 
  //  @author Ricard
-public class Personatge {
-
-    // Atributs principals
+public abstract class Personatge {
+    
+    
+    protected String nom;
+    protected Arma arma;
     protected int forca;
     protected int constitucio;
     protected int velocitat;
     protected int intelligencia;
     protected int sort;
     
-    // Estadístiques derivades
+    
     protected int ps;  // Punts de salut
     protected int pd;  // Punts de dany
     protected int pa;  // Probabilitat d'atac
     protected int pe;  // Probabilitat d'esquivar
 
     
-    // Arma
-    protected Arma arma;
-
-    // Nom
-    protected String nom;
+    
     
     public Personatge(String nom, int forca, int constitucio, int velocitat,
                       int intelligencia, int sort, Arma arma) {
@@ -133,6 +130,18 @@ public class Personatge {
     public void setNom(String nom) {
         this.nom = nom;
     }
-
     
+    public void restauraPS(){
+        this.ps = (int)(this.ps * 1.1);
+    }
+    
+    public boolean ContraAtact(Dau ... d){
+        int valor = d[0].llencar()+d[1].llencar()+d[2].llencar();
+        if(valor <=(this.getPa()/2)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public abstract void mostraNomTipus();
 }

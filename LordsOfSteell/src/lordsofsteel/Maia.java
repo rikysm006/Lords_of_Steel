@@ -17,5 +17,9 @@ public class Maia extends Personatge {
         pa = intelligencia + sort + arma.wvel + velocitat;
     }
     
+    @Override
+    public void mostraNomTipus(){System.out.println("Maia");
+    } 
+    
 }
 
