@@ -135,7 +135,7 @@ public abstract class Personatge {
         this.ps = (int)(this.ps * 1.1);
     }
     
-    public boolean ContraAtact(Dau ... d){
+    public boolean ContraAtaca(Dau ... d){
         int valor = d[0].llencar()+d[1].llencar()+d[2].llencar();
         if(valor <=(this.getPa()/2)){
             return true;
