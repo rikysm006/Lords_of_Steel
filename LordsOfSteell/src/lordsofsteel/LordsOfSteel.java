@@ -126,7 +126,16 @@ public class LordsOfSteel {
         
     }
     
+    public static void deletePj(ArrayList<Personatge> personatge){
     
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Personatges existens");
+        mostraPj(personatge);
+        System.out.println("Quin personatge vols esborrar?");
+        int selecciona = sc.nextInt();
+        personatges.remove(tria - 1);
+        mostraPj(personatge);
+    }
     
     
     
@@ -174,9 +183,9 @@ public class LordsOfSteel {
         int valor = dau1.llencar() + dau2.llencar() + dau3.llencar();
         
         
-        if (valor <= atacant.getPa()) { // Atacant ataca
+        if (valor <= atacant.getPa()) { 
             valor = dau1.llencar() + dau2.llencar() + dau3.llencar();
-            if (valor > defensor.getPe()) { // No aconsegueix esquivar
+            if (valor > defensor.getPe()) { 
                 defensor.setPs(defensor.getPs() - atacant.getPd());
             }
         }
