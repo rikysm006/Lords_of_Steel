@@ -13,27 +13,14 @@ import java.util.Scanner;
 public class LordsOfSteel {
 
     static Scanner sc = new Scanner(System.in);
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
         
-        // Personatge normal: pd = (8+5)/4 = 3
-        // Nan: pd = (8+6+5)/4 = 4
-        // Nan: ps = (8+6) = 14
-        //System.out.println("Punts de dany de n1: " + n1.getPd());
-        //System.out.println("Punts de salut de n1: " + n1.getPs());
-        
-        /* Creació de personatges inicials */
-        //Arma arma = new Arma("Daga");
         Nan n1 = new Nan("Tirion",8,6, 13,16,16,new Arma("Daga"));        
         Huma h1 = new Huma("Luis",13,16,6,10,6,new Arma("Espasa"));
         Mitja mi1 = new Mitja("Frodo",9,7,7,15,16,new Arma("Martell"));
         Maia ma1 = new Maia("Nil",7,9, 12,15,17,new Arma("Daga"));
         
-        /*Personatge[] personatges = new Personatge[4];
-        personatges[0] = n1;
-        personatges[1] = h1;*/
         ArrayList<Personatge> personatges = new ArrayList<Personatge>();
         personatges.add(n1);
         personatges.add(h1);

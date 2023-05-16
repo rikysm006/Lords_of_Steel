@@ -7,20 +7,20 @@ package lordsofsteel;
 public class Huma extends Personatge {
     
     public Huma(String nom,int forca, int constitucio, int velocitat,
-                int intelligencia, int sort, Arma arma) {
+                int inteligencia, int sort, Arma arma) {
 
-        super(nom,forca,constitucio,velocitat,intelligencia,sort,arma);
+        super(nom,forca,constitucio,velocitat,inteligencia,sort,arma);
         
     }
 
     
     protected void calculaEstadistiquesSecundaries() {
         super.calculaEstadistiquesSecundaries();
-        ps = constitucio + forca + intelligencia;
+        ps = constitucio + forca + inteligencia;
     }
     
     @Override
-    public void mostraNomTipus(){
-        System.out.println("Huma");
+    public String mostraNomTipus(){
+        return("Huma");
     }
 }

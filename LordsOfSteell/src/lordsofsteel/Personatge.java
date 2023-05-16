@@ -10,25 +10,74 @@ public abstract class Personatge {
     protected int forca;
     protected int constitucio;
     protected int velocitat;
-    protected int intelligencia;
+    protected int inteligencia;
     protected int sort;
     
+    protected int exp = 0; // experiencia
+    protected int lvl = 0; // nivell
+    protected int maxlvl = 5; //nivell maxim
+    protected int[] lvlexp = {100, 200, 300, 400, 500}; //experiencia per pujar de nivell
+
+    public int getExp() {
+        return exp;
+    }
+
+    public void setExp(int exp) {
+        this.exp = exp;
+    }
+
+    public int getLvl() {
+        return lvl;
+    }
+
+    public void setLvl(int lvl) {
+        this.lvl = lvl;
+    }
+
+    public int getMaxlvl() {
+        return maxlvl;
+    }
+
+    public void setMaxlvl(int maxlvl) {
+        this.maxlvl = maxlvl;
+    }
+
+    public int[] getLvlexp() {
+        return lvlexp;
+    }
+
+    public void setLvlexp(int[] lvlexp) {
+        this.lvlexp = lvlexp;
+    }
+    public void guanayExp(int PsRival){
+        this.setExp(this.getExp()+PsRival);
+        if (this.getExp()>=this.lvlexp[this.getLvl()]) {
+            this.setLvl(this.getLvl()+1);
+            this.setExp(this.getExp()-this.lvlexp[this.getLvl()-1]);
+            System.out.println(this.getNom()+" ha pujat al nivell "+this.getLvl()+"!");
+            this.setMaxP(this.getMaxP()+5);
+            this.setForca(this.getForca()+1);
+            this.setConstitucio(this.getConstitucio()+1);
+            this.setVelocitat(this.getVelocitat()+1);
+            this.setInteligencia(this.getInteligencia()+1);
+            this.setSort(this.getSort()+1);
+            this.calculaEstadistiquesSecundaries();
+        }
     
+    }
+    protected int maxP = 60; 
     protected int ps;  // Punts de salut
     protected int pd;  // Punts de dany
     protected int pa;  // Probabilitat d'atac
     protected int pe;  // Probabilitat d'esquivar
-
-    
-    
     
     public Personatge(String nom, int forca, int constitucio, int velocitat,
-                      int intelligencia, int sort, Arma arma) {
+                      int inteligencia, int sort, Arma arma) {
         this.nom           = nom;
         this.forca         = forca;
         this.constitucio   = constitucio;
         this.velocitat     = velocitat;
-        this.intelligencia = intelligencia;
+        this.inteligencia = inteligencia;
         this.sort          = sort;
         this.arma          = arma;
         calculaEstadistiquesSecundaries();
@@ -37,8 +86,8 @@ public abstract class Personatge {
     protected void calculaEstadistiquesSecundaries() {
         ps = constitucio + forca;
         pd = (forca + arma.getWpow())/4;
-        pa = intelligencia + sort;
-        pe = velocitat + sort + intelligencia;
+        pa = inteligencia + sort;
+        pe = velocitat + sort + inteligencia;
     }
 
     
@@ -54,8 +103,8 @@ public abstract class Personatge {
         return velocitat;
     }
 
-    public int getIntelligencia() {
-        return intelligencia;
+    public int getInteligencia() {
+        return inteligencia;
     }
 
     public int getSort() {
@@ -95,14 +144,20 @@ public abstract class Personatge {
         this.velocitat = velocitat;
     }
 
-    public void setIntelligencia(int intelligencia) {
-        this.intelligencia = intelligencia;
+    public void setInteligencia(int inteligencia) {
+        this.inteligencia = inteligencia;
     }
 
     public void setSort(int sort) {
         this.sort = sort;
     }
+    public int getMaxP() {
+        return maxP;
+    }
 
+    public void setMaxP(int maxP) {
+        this.maxP = maxP;
+    }
     public void setPs(int ps) {
         this.ps = ps;
     }
@@ -143,5 +198,5 @@ public abstract class Personatge {
             return false;
         }
     }
-    public abstract void mostraNomTipus();
+    public abstract String mostraNomTipus();
 }

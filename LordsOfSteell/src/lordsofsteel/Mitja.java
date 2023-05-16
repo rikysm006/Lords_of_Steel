@@ -6,20 +6,21 @@ package lordsofsteel;
 public class Mitja extends Personatge {
     
     public Mitja(String nom,int forca, int constitucio, int velocitat,
-                 int intelligencia, int sort, Arma arma) {
+                 int inteligencia, int sort, Arma arma) {
 
-        super(nom,forca,constitucio,velocitat,intelligencia,sort,arma);
+        super(nom,forca,constitucio,velocitat,inteligencia,sort,arma);
     }
     
 
     @Override
     protected void calculaEstadistiquesSecundaries() {
         super.calculaEstadistiquesSecundaries();
-        pe = velocitat+ sort + intelligencia + forca;
+        pe = velocitat+ sort + inteligencia + forca;
     }
     
     @Override
-    public void mostraNomTipus(){System.out.println("Mitja");
+    public String mostraNomTipus(){
+        return("Mitja");
     } 
 }
 

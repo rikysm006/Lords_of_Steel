@@ -6,19 +6,20 @@ package lordsofsteel;
 public class Maia extends Personatge {
 
     public Maia(String nom,int forca, int constitucio, int velocitat,
-                int intelligencia, int sort, Arma arma) {
+                int inteligencia, int sort, Arma arma) {
 
-        super(nom,forca,constitucio,velocitat,intelligencia,sort,arma);
+        super(nom,forca,constitucio,velocitat,inteligencia,sort,arma);
     }
 
     @Override
     protected void calculaEstadistiquesSecundaries() {
         super.calculaEstadistiquesSecundaries();
-        pa = intelligencia + sort + arma.wvel + velocitat;
+        pa = inteligencia + sort + arma.wvel + velocitat;
     }
     
     @Override
-    public void mostraNomTipus(){System.out.println("Maia");
+    public String mostraNomTipus(){
+        return("Maia");
     } 
     
 }
