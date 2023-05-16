@@ -26,7 +26,12 @@ public class LordsOfSteel {
         personatges.add(h1);
         personatges.add(mi1);
         personatges.add(ma1);
-                
+        
+        public static void mostraPj(ArrayList<Personatge> personatges) {
+        for (int i = 0; i < personatges.size(); i++) {
+            System.out.println((i + 1) + ".-" + personatges.get(i).getNom());
+        }
+    }
         
         /* Menú principal */
         System.out.println("");
@@ -46,20 +51,84 @@ public class LordsOfSteel {
         
         switch (opcio) {
             case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                iniciarCombat(personatges);
-                break;
-            case 5:
-                break;
-        }
+                        addPj(personatges);
+                        break;
+                    case 2:
+                        deletePj(personatges);
+                        break;
+                    case 3:
+                        editPj(personatges);
+                        break;
+                    case 4:
+                        iniciarCombat(personatges);
+                        break;
+                    case 5:
+                        System.out.println("¡Gracies per jugar!");
+                        break;
+                    default:
+                        break;
+                }
         
         
     }
+    public static void addPj (ArrayList<Personatge> personatge){
+        System.out.println("* Afegir personatge *");
+        System.out.println("");
+        System.out.println("Has de repartir 60 punts per les habilitats, " + "totes les habilitates han de tenir minim 3 punts i maxim 18 punts");
+        System.out.println("");
+        
+        
+         Scanner sc = new Scanner(System.in);
+
+        System.out.print("Nom: ");
+        String nom = sc.next();
+        System.out.print("Tipus [Huma, Maia, Mitja, Nan]:");
+        String tipus = sc.next();
+
+        System.out.print("Força: ");
+        int forca = Integer.parseInt(sc.next());
+
+        System.out.print("Consistencia: ");
+        int constitucio = Integer.parseInt(sc.next());
+
+        System.out.print("Velocitat: ");
+        int velocitat = Integer.parseInt(sc.next());
+
+        System.out.print("Inteligencia: ");
+        int inteligencia = Integer.parseInt(sc.next());
+
+        System.out.print("Sort: ");
+        int sort = Integer.parseInt(sc.next());
+
+        System.out.print("Arma [Daga,Espasa,Martell]:");
+        String arma = sc.next();
+
+
+        Personatge nou = null;
+        tipus= tipus.toLowerCase();
+            if (forca+constitucio+velocitat+inteligencia+sort<=60) {
+                if (tipus.equals("huma")) {
+                nou = new Huma(nom.toLowerCase(), forca, constitucio, velocitat, inteligencia, sort, new Arma(arma.toLowerCase()));
+            } else if (tipus.equals("mitja")) {
+                nou = new Mitja(nom.toLowerCase(), forca, constitucio, velocitat, inteligencia, sort, new Arma(arma.toLowerCase()));
+            } else if (tipus.equals("nan")) {
+                nou = new Nan(nom.toLowerCase(), forca, constitucio, velocitat, inteligencia, sort, new Arma(arma.toLowerCase()));
+            } else if (tipus.equals("maia")) {
+                nou = new Maia(nom.toLowerCase(), forca, constitucio, velocitat, inteligencia, sort, new Arma(arma.toLowerCase()));
+            }
+
+            personatges.add(nou);
+            mostraPj(personatges);
+            System.out.println("Personatge afegit amb èxit!");
+        } else {
+                System.out.println("Els punts maxim per el personatge nou son 60 punts");
+            }
+        
+    }
+    
+    
+    
+    
     
     
     public static void iniciarCombat(ArrayList<Personatge> personatges) {
@@ -87,9 +156,10 @@ public class LordsOfSteel {
             int opcio = sc.nextInt();
             seleccionats[opcio-1] = true;
             lluitadors[selec-1] = personatges.get(opcio-1);
-            System.out.println("Personatge triat: " + 
-                              personatges.get(opcio-1).getNom());        
-        }
+            System.out.println("Personatge triat: " +personatges.get(opcio-1).getNom());
+            System.out.print("Escull la devocio del personatge [Caos / Ordre]: ");
+            String devocio = sc.next();
+            }
         
         
         
